@@ -1,4 +1,6 @@
-export default [
+import { FixedHoliday, MovableHoliday } from "./types";
+
+const holidays: (FixedHoliday | MovableHoliday)[] = [
 	{
 		name: 'New Year',
 		namePL: 'Nowy Rok',
@@ -78,3 +80,5 @@ export default [
 		afterEaster: 60,
 	},
 ];
+
+export default holidays;

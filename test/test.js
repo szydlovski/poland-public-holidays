@@ -5,7 +5,7 @@ import {
 	isHoliday,
 	getHolidaysInYear,
 	getHolidayOnDate,
-} from './../src/index.js';
+} from './../build/index.js';
 
 import {
 	invalidDates,

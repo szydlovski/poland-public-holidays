@@ -1,10 +1,10 @@
-export function addDays(date, days) {
+export function addDays(date: Date, days: number) {
 	const result = new Date(date);
 	result.setDate(result.getDate() + days);
 	return result;
 }
 
-export function isSameDay(date1, date2) {
+export function isSameDay(date1: Date, date2: Date) {
 	return (
 		date1.getFullYear() === date2.getFullYear() &&
 		date1.getMonth() === date2.getMonth() &&
@@ -12,11 +12,11 @@ export function isSameDay(date1, date2) {
 	);
 }
 
-export function getEasterDate(year) {
+export function getEasterDate(yearInput: number) {
 	// https://en.wikipedia.org/wiki/Date_of_Easter#Anonymous_Gregorian_algorithm
-	const a = year % 19;
-	const b = Math.floor(year / 100);
-	const c = year % 100;
+	const a = yearInput % 19;
+	const b = Math.floor(yearInput / 100);
+	const c = yearInput % 100;
 	const d = Math.floor(b / 4);
 	const e = b % 4;
 	const f = Math.floor((b + 8) / 25);
@@ -28,33 +28,33 @@ export function getEasterDate(year) {
 	const m = Math.floor((a + 11 * h + 22 * l) / 451);
 	const p = h + l - 7 * m + 114;
 
-	const pad = (str) => (str + '').padStart(2, '0');
+	const pad = (n: number) => (n + '').padStart(2, '0');
 
 	const day = pad((p % 31) + 1);
 	const month = pad(Math.floor(p / 31));
-	year = year.toString().padStart(4, '0');
+	const year = yearInput.toString().padStart(4, '0');
 
 
 	return new Date(`${year}-${month}-${day}`);
 }
 
 
-export function isNumber(value) {
+export function isNumber(value: any) {
 	return typeof value === 'number' && isFinite(value);
 }
 
-export function validateYear(year) {
+export function validateYear(year: Date | number): Date {
 	if (isNumber(year) && year > 0) {
-		year = new Date(year.toString().padStart(4, '0'));
+		return validateYear(new Date(year.toString().padStart(4, '0')));
 	}
 	try {
-		return validateDate(year);
+		return validateDate(year as Date);
 	} catch (error) {
 		throw new Error(`Invalid year`);
 	}
 }
 
-export function validateDate(date) {
+export function validateDate(date: Date | string): Date {
 	let dateObject;
 
 	if (date instanceof Date) {

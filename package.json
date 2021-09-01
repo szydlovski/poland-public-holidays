@@ -1,16 +1,11 @@
 {
   "name": "poland-public-holidays",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "compute dates of public holidays in Poland",
-  "main": "src/index.js",
-  "exports": {
-    ".": {
-      "import": "./src/index.js",
-      "require": "./cjs/bundle.js"
-    }
-  },
+  "main": "build/index.js",
   "scripts": {
-    "test": "c8 mocha test/test.js"
+    "build": "npx tsc",
+    "test": "npx c8 mocha test/test.js"
   },
   "keywords": [
     "poland",
@@ -20,15 +15,16 @@
   ],
   "type": "module",
   "repository": "https://github.com/szydlovski/poland-public-holidays",
-  "author": "Kamil Szydlowski",
+  "author": {
+    "name": "Kamil Szydlowski",
+    "email": "kamil.szydlovski@gmail.com",
+    "url": "https://szydlovski.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "c8": "^7.4.0",
     "chai": "^4.2.0",
-    "clean-webpack-plugin": "^3.0.0",
     "mocha": "^8.2.1",
-    "webpack": "^5.10.0",
-    "webpack-cli": "^4.2.0",
-    "rollup": "^2.52.7"
+    "typescript": "^4.4.2"
   }
 }
