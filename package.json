@@ -1,6 +1,6 @@
 {
   "name": "poland-public-holidays",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "compute dates of public holidays in Poland",
   "main": "build/index.js",
   "scripts": {
