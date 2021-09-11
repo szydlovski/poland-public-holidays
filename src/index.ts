@@ -42,3 +42,15 @@ export function isHoliday(dateInput: Date | string) {
 	const date = validateDate(dateInput);
 	return getHolidayOnDate(date) !== undefined;
 }
+
+export function isWeekend(date: Date): boolean {
+	return [0, 6].includes(date.getDay());
+}
+
+export function isWeekendOrHoliday(date: Date): boolean {
+	return isWeekend(date) || isHoliday(date);
+}
+
+export function isWorkingDay(date: Date): boolean {
+	return !isWeekendOrHoliday(date);
+}
