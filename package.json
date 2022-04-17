@@ -13,7 +13,6 @@
     "holidays",
     "easter"
   ],
-  "type": "module",
   "repository": "https://github.com/szydlovski/poland-public-holidays",
   "author": {
     "name": "Kamil Szydlowski",
