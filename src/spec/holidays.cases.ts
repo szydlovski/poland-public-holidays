@@ -11,6 +11,7 @@ const invalidDates = [
 	new Date(''),
 	Date.now(),
 ];
+
 const invalidYears = [
 	'notavaliddate',
 	'16',
@@ -25,13 +26,16 @@ const invalidYears = [
 	-1,
 	-500,
 ];
+
 const validDates = [
 	'2020-03-20',
 	'Fri Dec 11 2020 02:06:04 GMT+0100 (Central European Standard Time)',
 	new Date(),
 	new Date('2019-07-21'),
 ];
+
 const validYears = [...validDates, 2020, 1950, 150, 3827, 15];
+
 const holidaysInYears = [
 	{
 		year: 2020,
@@ -59,6 +63,7 @@ const holidaysInYears = [
 		holidayDate: '1994-05-01',
 	},
 ];
+
 const yearsInPastAndFuture = [
 	32,
 	299,
@@ -71,6 +76,7 @@ const yearsInPastAndFuture = [
 	2920,
 	3533,
 ];
+
 const existingHolidays = [
 	{
 		date: '2006-01-06',

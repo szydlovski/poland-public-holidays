@@ -1,11 +1,10 @@
-import chai from "chai";
-const { expect } = chai;
+import { expect } from "chai";
 
 import {
 	isHoliday,
 	getHolidaysInYear,
 	getHolidayOnDate,
-} from './../build/index.js';
+} from '..';
 
 import {
 	invalidDates,
@@ -16,7 +15,7 @@ import {
 	yearsInPastAndFuture,
 	existingHolidays,
 	nonHolidays
-} from './cases.js';
+} from './holidays.cases';
 
 describe('getHolidayOnDate', function () {
 	it('accepts valid Date objects and date strings as arguments', function () {
@@ -44,9 +43,9 @@ describe('getHolidayOnDate', function () {
 			const { name, date } = testCase;
 			const holiday = getHolidayOnDate(date);
 			expect(holiday).to.not.equal(undefined);
-			expect(holiday.namePL).to.not.equal(undefined);
-			expect(holiday.date).to.be.a('Date');
-			expect(holiday.name).to.equal(name);
+			expect(holiday?.namePL).to.not.equal(undefined);
+			expect(holiday?.date).to.be.a('Date');
+			expect(holiday?.name).to.equal(name);
 		}
 	});
 	it('returns undefined if there is no holiday on the provided date', function () {
@@ -117,7 +116,7 @@ describe('getHolidaysInYear', function () {
 			const holidaysInYear = getHolidaysInYear(year);
 			const holiday = holidaysInYear.find(({ name }) => name === holidayName);
 			expect(holiday).to.not.equal(undefined);
-			expect(holiday.date.toISOString().slice(0, 10)).to.equal(holidayDate);
+			expect(holiday?.date.toISOString().slice(0, 10)).to.equal(holidayDate);
 		}
 	});
 
